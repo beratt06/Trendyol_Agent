@@ -1,0 +1,5 @@
+# This project is a Chrome Extension (Manifest V3) written in JavaScript.
+# No Python dependencies are required for normal usage.
+
+# Optional local runtime dependency (not a pip package):
+# - Ollama (https://ollama.com)
