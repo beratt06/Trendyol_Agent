@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Alışveriş Asistanı — Ayarlar</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <div class="popup-header">
+      <span class="popup-icon">🤖</span>
+      <h1 class="popup-title">AI Alışveriş Asistanı</h1>
+    </div>
+
+    <!-- API Provider Section -->
+    <div class="popup-section">
+      <label class="popup-label" for="provider-select">
+        🔌 API Sağlayıcı
+      </label>
+      <select id="provider-select" class="popup-select">
+        <option value="ollama">🦙 Ollama (Yerel Sunucu)</option>
+        <option value="openai">☁️ OpenAI (Bulut API)</option>
+      </select>
+    </div>
+
+    <!-- API Key Section (OpenAI only) -->
+    <div class="popup-section" id="api-key-section" style="display: none;">
+      <label class="popup-label" for="api-key-input">
+        🔑 API Anahtarı
+        <span class="popup-hint">OpenAI API anahtarınız</span>
+      </label>
+      <div class="popup-input-group">
+        <input
+          type="password"
+          id="api-key-input"
+          class="popup-input"
+          placeholder="sk-..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button id="toggle-key-visibility" class="popup-btn-icon" title="Göster/Gizle">
+          👁️
+        </button>
+      </div>
+    </div>
+
+    <!-- API URL Section -->
+    <div class="popup-section">
+      <label class="popup-label" for="api-url-input">
+        🌐 API URL
+        <span class="popup-hint" id="url-hint">Ollama yerel sunucu adresi</span>
+      </label>
+      <input
+        type="url"
+        id="api-url-input"
+        class="popup-input"
+        placeholder="http://localhost:11434/api/chat"
+      />
+    </div>
+
+    <!-- Model Section -->
+    <div class="popup-section">
+      <label class="popup-label" for="model-input">
+        🧠 Model
+        <span class="popup-hint" id="model-hint">Ollama'da yüklü model adı</span>
+      </label>
+      <input
+        type="text"
+        id="model-input"
+        class="popup-input"
+        placeholder="llama3"
+        value="llama3"
+      />
+    </div>
+
+    <!-- Ollama Status -->
+    <div id="ollama-status" class="popup-status" style="display: none;"></div>
+
+    <!-- Save Button -->
+    <button id="save-btn" class="popup-btn-primary">
+      💾 Kaydet
+    </button>
+
+    <!-- Status Message -->
+    <div id="status-message" class="popup-status" style="display: none;"></div>
+
+    <!-- Footer -->
+    <div class="popup-footer">
+      <span>v3.0 Final Build • AI Shopping Assistant</span>
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

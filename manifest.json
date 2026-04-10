@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Trendyol AI Alışveriş Asistanı",
+  "version": "3.0.0",
+  "description": "Trendyol AI Alışveriş Asistanı — Ürün analizi, yorum analizi, sahte yorum tespiti, beden önerisi, satıcı fiyat karşılaştırması ve satın alma önerisi.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.openai.com/*",
+    "http://localhost:11434/*",
+    "https://apigw.trendyol.com/*",
+    "https://public-mdc.trendyol.com/*",
+    "https://public.trendyol.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "AI Alışveriş Asistanı Ayarları"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.trendyol.com/*-p-*"
+      ],
+      "css": [
+        "panel.css"
+      ],
+      "js": [
+        "scraper.js",
+        "panel.js",
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
